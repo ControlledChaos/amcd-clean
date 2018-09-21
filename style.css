@@ -64,6 +64,18 @@ body:not(.home) .page-top-wrap {
      max-width: 50%;
 }
 
+.intro-image {
+    max-width: 50%;
+}
+
+.intro-image img {
+    display: block;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    object-position: 50% 50%;
+}
+
 .front-body-wrap .site-title {
     margin: 0;
 }
@@ -83,6 +95,10 @@ body:not(.home) .page-top-wrap {
     font-size: 4.2rem;
     text-align: center;
     line-height: 1.2;
+}
+
+.home.intro-has-image .site-title {
+    font-size: 3.6rem;
 }
 
 .site-title,
@@ -105,18 +121,6 @@ body:not(.home) .page-top-wrap {
     margin-top: 0.3em;
     font-size: 2.3rem;
     text-align: center;
-}
-
-.intro-image {
-    max-width: 50%;
-}
-
-.intro-image img {
-    display: block;
-    margin: 0;
-    padding: 0;
-    object-fit: contain;
-    object-position: 50% 50%;
 }
 
 /**

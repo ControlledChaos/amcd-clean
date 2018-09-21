@@ -71,6 +71,9 @@ final class Functions {
 		// Frontend scripts.
 		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
 
+		// Add conditional body classes.
+		add_filter( 'body_class', [ $this, 'body_classes' ] );
+
 		// Front page scripts.
 		add_action( 'wp_footer', [ $this, 'front_page_scripts' ], 20 );
 
@@ -166,9 +169,46 @@ final class Functions {
 	 * @access public
 	 * @return void
 	 */
-	public function frontend_scripts() {
+	public function frontend_scripts() {}
 
+	/**
+	 * Add conditional body classes.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function body_classes( $classes ) {
 
+		// Check for the Advanced Custom Fields plugin.
+		if ( class_exists( 'acf' ) ) :
+
+			/**
+			 * Front page intro image.
+			 *
+			 * @since 1.0.0
+			 */
+
+			// Look for an image in the field.
+			$intro_image      = get_field( 'amcd_intro_image' );
+
+			if ( ! empty( $intro_image ) && is_front_page() ) {
+
+				$classes[] = 'intro-has-image';
+
+			}
+
+			// Class for the image `object-posistion` styles.
+			$intro_image_horz = get_field( 'amcd_intro_image_horz' );
+			$intro_image_vert = get_field( 'amcd_intro_image_vert' );
+
+		else :
+			$classes[] = null;
+
+		// End check for ACF.
+		endif;
+
+		return $classes;
 
 	}
 
@@ -181,11 +221,32 @@ final class Functions {
 	 */
 	public function front_page_scripts() {
 
-		$fit_text = '<script>!function(a){a.fn.fitText=function(b,c){var d=b||1,e=a.extend({minFontSize:Number.NEGATIVE_INFINITY,maxFontSize:Number.POSITIVE_INFINITY},c);return this.each(function(){var b=a(this),c=function(){b.css("font-size",Math.max(Math.min(b.width()/(10*d),parseFloat(e.maxFontSize)),parseFloat(e.minFontSize)))};c(),a(window).on("resize.fittext orientationchange.fittext",c)})}}(jQuery);jQuery(".home .site-title").fitText(1.2, { minFontSize: "28px", maxFontSize: "44px" });</script>';
+		// Check for the Advanced Custom Fields plugin.
+		if ( class_exists( 'acf' ) ) :
 
-		if ( is_front_page() ) {
+			// Look for an image in the field.
+			$intro_image = get_field( 'amcd_intro_image' );
+
+			if ( ! empty( $intro_image ) && is_front_page() ) {
+
+				$fit_text = '<script>!function(a){a.fn.fitText=function(b,c){var d=b||1,e=a.extend({minFontSize:Number.NEGATIVE_INFINITY,maxFontSize:Number.POSITIVE_INFINITY},c);return this.each(function(){var b=a(this),c=function(){b.css("font-size",Math.max(Math.min(b.width()/(10*d),parseFloat(e.maxFontSize)),parseFloat(e.minFontSize)))};c(),a(window).on("resize.fittext orientationchange.fittext",c)})}}(jQuery);jQuery(".home .site-title").fitText(1.2, { minFontSize: "24px", maxFontSize: "36px" });</script>';
+
+			} elseif ( is_front_page() ) {
+
+				$fit_text = '<script>!function(a){a.fn.fitText=function(b,c){var d=b||1,e=a.extend({minFontSize:Number.NEGATIVE_INFINITY,maxFontSize:Number.POSITIVE_INFINITY},c);return this.each(function(){var b=a(this),c=function(){b.css("font-size",Math.max(Math.min(b.width()/(10*d),parseFloat(e.maxFontSize)),parseFloat(e.minFontSize)))};c(),a(window).on("resize.fittext orientationchange.fittext",c)})}}(jQuery);jQuery(".home .site-title").fitText(1.2, { minFontSize: "28px", maxFontSize: "44px" });</script>';
+
+			}
+
 			echo $fit_text;
-		}
+
+		elseif ( is_front_page() ) :
+
+			$fit_text = '<script>!function(a){a.fn.fitText=function(b,c){var d=b||1,e=a.extend({minFontSize:Number.NEGATIVE_INFINITY,maxFontSize:Number.POSITIVE_INFINITY},c);return this.each(function(){var b=a(this),c=function(){b.css("font-size",Math.max(Math.min(b.width()/(10*d),parseFloat(e.maxFontSize)),parseFloat(e.minFontSize)))};c(),a(window).on("resize.fittext orientationchange.fittext",c)})}}(jQuery);jQuery(".home .site-title").fitText(1.2, { minFontSize: "28px", maxFontSize: "44px" });</script>';
+
+			echo $fit_text;
+
+		// End check for ACF.
+		endif;
 
 	}
 
