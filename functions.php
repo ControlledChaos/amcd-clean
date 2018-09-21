@@ -221,6 +221,12 @@ final class Functions {
 	 */
 	public function front_page_scripts() {
 
+		/**
+		 * FitText script for front page site title.
+		 *
+		 * @since  1.0.0
+		 */
+
 		// Check for the Advanced Custom Fields plugin.
 		if ( class_exists( 'acf' ) ) :
 
@@ -239,6 +245,7 @@ final class Functions {
 
 			echo $fit_text;
 
+		// If no ACF, no image. So use a larger max size for FitText.
 		elseif ( is_front_page() ) :
 
 			$fit_text = '<script>!function(a){a.fn.fitText=function(b,c){var d=b||1,e=a.extend({minFontSize:Number.NEGATIVE_INFINITY,maxFontSize:Number.POSITIVE_INFINITY},c);return this.each(function(){var b=a(this),c=function(){b.css("font-size",Math.max(Math.min(b.width()/(10*d),parseFloat(e.maxFontSize)),parseFloat(e.minFontSize)))};c(),a(window).on("resize.fittext orientationchange.fittext",c)})}}(jQuery);jQuery(".home .site-title").fitText(1.2, { minFontSize: "28px", maxFontSize: "44px" });</script>';
