@@ -76,6 +76,38 @@ body:not(.home) .page-top-wrap {
     object-position: 50% 50%;
 }
 
+.intro-image-x-center.intro-image-y-top .intro-image img {
+    object-position: 50% 0%;
+}
+
+.intro-image-x-center.intro-image-y-bottom .intro-image img {
+    object-position: 50% 100%;
+}
+
+.intro-image-x-left.intro-image-y-top .intro-image img {
+    object-position: 0% 0%;
+}
+
+.intro-image-x-left.intro-image-y-center .intro-image img {
+    object-position: 0% 50%;
+}
+
+.intro-image-x-left.intro-image-y-bottom .intro-image img {
+    object-position: 0% 100%;
+}
+
+.intro-image-x-right.intro-image-y-top .intro-image img {
+    object-position: 100% 0%;
+}
+
+.intro-image-x-right.intro-image-y-center .intro-image img {
+    object-position: 100% 50%;
+}
+
+.intro-image-x-right.intro-image-y-bottom .intro-image img {
+    object-position: 100% 100%;
+}
+
 .front-body-wrap .site-title {
     margin: 0;
 }

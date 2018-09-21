@@ -180,6 +180,10 @@ final class Functions {
 	 */
 	public function body_classes( $classes ) {
 
+		if ( is_admin() ) {
+			return;
+		}
+
 		// Check for the Advanced Custom Fields plugin.
 		if ( class_exists( 'acf' ) ) :
 
@@ -189,12 +193,15 @@ final class Functions {
 			 * @since 1.0.0
 			 */
 
-			// Look for an image in the field.
-			$intro_image      = get_field( 'amcd_intro_image' );
+			$intro_image = get_field( 'amcd_intro_image' );
+			$pos_horz    = get_field( 'amcd_intro_image_horz' );
+			$pos_vert    = get_field( 'amcd_intro_image_vert' );
 
 			if ( ! empty( $intro_image ) && is_front_page() ) {
 
 				$classes[] = 'intro-has-image';
+				$classes[] .= 'intro-image-x-' . $pos_horz;
+				$classes[] .= 'intro-image-y-' . $pos_vert;
 
 			}
 
