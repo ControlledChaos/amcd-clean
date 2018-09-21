@@ -1,2 +1,3 @@
-# amcd-clean
-A child of the Alana Morshead theme.
+# Alana Morshead Clean Theme
+
+A clean and simple child of the Alana Morshead starter theme.
