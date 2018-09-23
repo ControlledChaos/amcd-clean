@@ -151,6 +151,8 @@ final class Functions {
 			wp_enqueue_style( 'amcd-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:200,300,400|Open+Sans:400,400i,600,600i,700,700i', [], '', 'screen' );
 		}
 
+		wp_enqueue_style( 'amcd-icons',  get_theme_file_uri( '/assets/icon-font/icon-font.min.css' ), [], '', 'screen' );
+
 	}
 
 	/**
@@ -194,20 +196,12 @@ final class Functions {
 			 */
 
 			$intro_image = get_field( 'amcd_intro_image' );
-			$pos_horz    = get_field( 'amcd_intro_image_horz' );
-			$pos_vert    = get_field( 'amcd_intro_image_vert' );
 
 			if ( ! empty( $intro_image ) && is_front_page() ) {
 
 				$classes[] = 'intro-has-image';
-				$classes[] .= 'intro-image-x-' . $pos_horz;
-				$classes[] .= 'intro-image-y-' . $pos_vert;
 
 			}
-
-			// Class for the image `object-posistion` styles.
-			$intro_image_horz = get_field( 'amcd_intro_image_horz' );
-			$intro_image_vert = get_field( 'amcd_intro_image_vert' );
 
 		else :
 			$classes[] = null;
@@ -263,6 +257,25 @@ final class Functions {
 
 		// End check for ACF.
 		endif;
+
+		if ( is_front_page() ) {
+			echo '
+			<script>
+			jQuery(".intro-slides").slick({
+				autoplay: true,
+				autoplaySpeed: 5000,
+				slidesToShow: 1,
+				arrows: false,
+				dots: false,
+				infinite: true,
+				speed: 800,
+				adaptiveHeight: false,
+				variableWidth: false,
+				draggable: false,
+				fade: true
+			});
+			</script>';
+		}
 
 	}
 

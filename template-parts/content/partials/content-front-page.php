@@ -14,37 +14,22 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Check for the Advanced Custom Fields plugin.
 if ( class_exists( 'acf' ) ) :
-
-    $intro_image = get_field( 'amcd_intro_image' );
-
-    if ( ! empty( $intro_image ) ) {
-
-        $url     = $intro_image['url'];
-        $title   = $intro_image['title'];
-        $alt     = $intro_image['alt'];
-        $caption = $intro_image['caption'];
-        $size    = 'large';
-        $thumb   = $intro_image['sizes'][ $size ];
-        $width   = $intro_image['sizes'][ $size . '-width' ];
-        $height  = $intro_image['sizes'][ $size . '-height' ];
-        $image   = '<div class="intro-image">';
-        $image   .= sprintf(
-            '<img src="%1s" alt="%2s" width="%3s" height="%4s" />',
-            $url,
-            $alt,
-            $width,
-            $height
-        );
-        $image   .= '</div>';
-
-    } else {
-        $image = null;
-    }
-
-else :
-    $image = null;
-
-// End check for ACF.
+    if ( have_rows( 'amcd_intro_slides' ) ) : ?>
+    <div class="intro-image">
+        <div id="slick-flexbox-fix"><!-- Stops SlickJS from getting original image rather than the intro-large size" -->
+            <ul class="intro-slides">
+                <?php while ( have_rows( 'amcd_intro_slides' ) ) : the_row();
+                $image  = get_sub_field( 'amcd_intro_image' );
+                $size   = 'intro-large';
+                $thumb  = $image['sizes'][ $size ];
+                $width  = $image['sizes'][ $size . '-width' ];
+                $height = $image['sizes'][ $size . '-height' ]; ?>
+                <li class="slide">
+                    <img src="<?php echo $thumb; ?>" alt="<?php echo $image['alt'] ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
+                </li>
+                <?php endwhile; ?>
+            </ul>
+        </div>
+    </div>
+    <?php endif;
 endif;
-
-echo $image;
