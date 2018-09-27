@@ -65,11 +65,23 @@ final class Functions {
 	 */
 	public function __construct() {
 
+		// Swap html 'no-js' class with 'js'.
+		add_action( 'wp_head', [ $this, 'js_detect' ], 0 );
+
+		// Controlled Chaos theme setup.
+		add_action( 'after_setup_theme', [ $this, 'setup' ] );
+
+		// Remove unpopular meta tags.
+		add_action( 'init', [ $this, 'head_cleanup' ] );
+
         // Frontend styles.
 		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_styles' ] );
 
 		// Frontend scripts.
 		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
+
+		// Admin styles.
+		// add_action( 'admin_enqueue_scripts', [ $this, 'admin_styles' ] );
 
 		// Add conditional body classes.
 		add_filter( 'body_class', [ $this, 'body_classes' ] );
@@ -77,6 +89,159 @@ final class Functions {
 		// Front page scripts.
 		add_action( 'wp_footer', [ $this, 'front_page_scripts' ], 20 );
 
+		// Remove the user admin color scheme picker.
+		remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+
+	}
+
+	/**
+	 * Replace 'no-js' class with 'js' in the <html> element when JavaScript is detected.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function js_detect() {
+
+		echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
+
+	}
+
+	/**
+	 * Theme setup.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function setup() {
+
+		/**
+		 * Load domain for translation.
+		 *
+		 * @since 1.0.0
+		 */
+		load_theme_textdomain( 'amcd-theme' );
+
+		/**
+		 * Add theme support.
+		 *
+		 * @since 1.0.0
+		 */
+
+		// Browser title tag support.
+		add_theme_support( 'title-tag' );
+
+		// Background color & image support.
+		add_theme_support( 'custom-background' );
+
+		// RSS feed links support.
+		add_theme_support( 'automatic-feed-links' );
+
+		// HTML 5 tags support.
+		add_theme_support( 'html5', [
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gscreenery',
+			'caption'
+		 ] );
+
+		/**
+		 * Add theme support.
+		 *
+		 * @since 1.0.0
+		 */
+
+		// Featured image support.
+		add_theme_support( 'post-thumbnails' );
+
+		/**
+		 * Add image sizes.
+		 *
+		 * Three sizes per aspect ratio so that WordPress
+		 * will use srcset for responsive images.
+		 *
+		 * @since 1.0.0
+		 */
+
+		// Set default sizes in options tabe.
+		update_option( 'thumbnail_size_w', 160 );
+		update_option( 'thumbnail_size_h', 160 );
+		update_option( 'medium_size_w', 320 );
+		update_option( 'medium_size_h', 240 );
+		update_option( 'large_size_w', 1024 );
+		update_option( 'large_size_h', 768 );
+
+		// 1:1 Square.
+		add_image_size( 'thumb-large', 240, 240, true );
+		add_image_size( 'thumb-x-large', 320, 320, true );
+		add_image_size( 'intro-small', 640, 640, true );
+		add_image_size( 'intro-medium', 768, 768, true );
+		add_image_size( 'intro-large', 1080, 1080, true );
+
+		// 16:9 HD Video.
+		add_image_size( 'video-small', 640, 360, true );
+		add_image_size( 'video-medium', 960, 540, true );
+		add_image_size( 'video-large', 1280, 720, true );
+
+		// Add image size for meta tags if companion plugin is not activated.
+		if ( ! is_plugin_active( 'amcd-plugin/amcd-plugin.php' ) ) {
+			add_image_size( __( 'meta-image', 'amcd-theme' ), 1200, 630, true );
+		}
+
+		 /**
+		 * Set content width.
+		 *
+		 * @since 1.0.0
+		 */
+
+		if ( ! isset( $content_width ) ) {
+			$content_width = 1280;
+		}
+
+		/**
+		 * Register theme menus.
+		 *
+		 * @since  1.0.0
+		 */
+		register_nav_menus( [
+			'main'   => __( 'Main Menu', 'amcd-theme' ),
+			'footer' => __( 'Footer Menu', 'amcd-theme' ),
+			'social' => __( 'Social Menu', 'amcd-theme' )
+		] );
+
+		/**
+		 * Add stylesheet for the content editor.
+		 *
+		 * @since 1.0.0
+		 */
+		add_editor_style( '/assets/css/editor-style.css', [ 'amcd-admin' ], '', 'screen' );
+
+		/**
+		 * Disable Jetpack open graph. We have the open graph tags in the theme.
+		 *
+		 * @since 1.0.0
+		 */
+		if ( class_exists( 'Jetpack' ) ) {
+			add_filter( 'jetpack_enable_opengraph', '__return_false', 99 );
+		}
+
+	}
+
+	/**
+	 * Clean up meta tags from the <head>.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function head_cleanup() {
+
+		remove_action( 'wp_head', 'rsd_link' );
+		remove_action( 'wp_head', 'wlwmanifest_link' );
+		remove_action( 'wp_head', 'wp_generator' );
+		remove_action( 'wp_head', 'wp_site_icon', 99 );
 	}
 
 	/**
@@ -162,7 +327,12 @@ final class Functions {
 	 * @access public
 	 * @return void
 	 */
-	public function admin_styles() {}
+	public function admin_styles() {
+
+		// Admin styles.
+		wp_enqueue_style( 'amcd-clean-admin',  get_theme_file_uri( '/assets/css/admin-theme.css' ), [], '', 'screen' );
+
+	}
 
 	/**
 	 * Frontend scripts.
@@ -187,27 +357,22 @@ final class Functions {
 		}
 
 		// Check for the Advanced Custom Fields plugin.
-		if ( class_exists( 'acf' ) ) :
+		if ( class_exists( 'acf' ) ) {
 
 			/**
 			 * Front page intro image.
 			 *
 			 * @since 1.0.0
 			 */
-
 			$intro_image = get_field( 'amcd_intro_image' );
 
 			if ( ! empty( $intro_image ) && is_front_page() ) {
-
 				$classes[] = 'intro-has-image';
-
 			}
 
-		else :
+		} else {
 			$classes[] = null;
-
-		// End check for ACF.
-		endif;
+		} // End check for ACF.
 
 		return $classes;
 
