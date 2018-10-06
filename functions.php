@@ -316,7 +316,7 @@ final class Functions {
 			wp_enqueue_style( 'amcd-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:200,300,400|Open+Sans:400,400i,600,600i,700,700i', [], '', 'screen' );
 		}
 
-		wp_enqueue_style( 'amcd-icons',  get_theme_file_uri( '/assets/icon-font/icon-font.min.css' ), [], '', 'screen' );
+		wp_enqueue_style( 'amcd-icons',  get_theme_file_uri( '/assets/icon-font/amcd-icons.min.css' ), [], '', 'screen' );
 
 	}
 
