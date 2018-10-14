@@ -18,6 +18,10 @@ body {
     color: #444;
 }
 
+body:not(.home) {
+    padding: 0 2rem;
+}
+
 .home.page {
     height: 100vh;
     overflow: hidden;
@@ -40,13 +44,26 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     font-size: 2.25rem;
-    font-weight: lighter;
+    font-weight: normal;
     font-weight: 400;
     letter-spacing: 0.0475em;
     text-transform: uppercase;
+    color: #777;
+}
+
+h3 {
+    font-size: 1.825rem;
+}
+
+a {
+    color: inherit;
+}
+
+strong {
     color: #777;
 }
 
@@ -173,7 +190,7 @@ body:not(.home) .page-top-wrap {
 
 .site-title,
 .site-title a {
-    color: #777;
+    color: #666;
 }
 
 .site-description {
@@ -299,7 +316,8 @@ body:not(.home) article {
 }
 
 .video-grid figure {
-	position: relative;
+    position: relative;
+    overflow: hidden;
 }
 
 .video-grid figcaption {
@@ -308,7 +326,7 @@ body:not(.home) article {
     bottom: 0;
     width: 100%;
 	height: auto;
-    padding: 1em;
+    padding: 1em 1em 1em 1.5em;
     background: -webkit-gradient(
         linear,
         left top, left bottom,
@@ -340,6 +358,19 @@ body:not(.home) article {
 	text-transform: uppercase;
 }
 
+.video-grid.features figcaption h3 {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    -webkit-transition: all .25s;
+            transition: all .25s;
+}
+
+.video-grid.features li:hover figcaption h3,
+.video-grid.features li:focus figcaption h3 {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+}
+
 .video-grid figcaption p {
     margin: 0;
     font-size: 1.4rem;
@@ -348,11 +379,12 @@ body:not(.home) article {
 .video-grid figcaption ul {
     list-style: none;
     margin: 0;
-    -webkit-transform: translateY(-15%);
-            transform: translateY(-15%);
+    -webkit-transform: translateY(-20%);
+            transform: translateY(-20%);
     opacity: 0;
     -webkit-transition: all .25s;
-    transition: all .25s;
+            transition: all .25s;
+    pointer-events: auto;
 }
 
 .video-grid li:hover figcaption ul,
@@ -364,11 +396,10 @@ body:not(.home) article {
 
 .video-grid figcaption li {
     position: relative;
-    font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    font-size: 1.425rem;
+    font-size: 1.475rem;
     font-style: normal;
-    font-weight: normal;
-    font-weight: 400;
+    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.085em;
 }
 
@@ -456,9 +487,63 @@ body:not(.home) article {
 }
 
 /**
+ * Single feature pages.
+ */
+.entry-imdb,
+.entry-info-description p:nth-of-type(2) {
+    margin: 0;
+}
+
+.entry-info {
+    padding-bottom: 2em;
+    border-bottom: solid 1px #ccc;
+}
+
+.single-feature-video h3 {
+    margin-bottom: 1em;
+}
+
+.feature-gallery {
+    margin-top: 2em;
+    border-top: solid 1px #ccc;
+}
+
+.posts-nav-bottom {
+    margin-top: 2em;
+    padding-top: 2em;
+    border-top: solid 1px #ccc;
+    font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-size: 1.375rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.posts-nav-bottom a {
+    text-decoration: none;
+}
+
+.next-post a:before,
+.prev-post a:after {
+    display: inline-block;
+    font-family: 'amcd-icons';
+}
+
+.next-post a:before {
+    content: '\e801';
+    margin-right: 0.5em;
+}
+
+.prev-post a:after {
+    content: '\e802';
+    margin-left: 0.5em;
+}
+
+/**
  * Footer
  */
 .copyright-text {
+    margin: 1em 0 2em;
     font-family: 'Montserrat', 'Libre Franklin', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     font-size: 0.625em;
     font-weight: lighter;
@@ -471,12 +556,12 @@ body:not(.home) article {
 
 @media screen and (max-width: 640px) {
 
-    .video-grid figcaption li a:before {
+    .disabled.video-grid figcaption li a:before {
         display: inline-block;
     }
 
-    .video-grid figcaption li a span,
-    .video-grid figcaption li a:after {
+    .disabled.video-grid figcaption li a span,
+    .disabled.video-grid figcaption li a:after {
         display: none;
     }
 
