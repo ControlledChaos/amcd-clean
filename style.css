@@ -575,6 +575,16 @@ body:not(.home) article {
     color: #777;
 }
 
+.resume-link {
+	margin-top: 2em;
+	padding-top: 2em;
+	border-top: solid 1px #ccc;
+}
+
+.resume-link p {
+	margin: 0;
+}
+
 .resume-link-button {
 	display: inline-block;
 	padding: 1em;
@@ -586,6 +596,12 @@ body:not(.home) article {
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.1em;
+    transition: all .15s;
+}
+
+.resume-link-button:hover,
+.resume-link-button:focus {
+	background: #aeaeae;
 }
 
 /**
