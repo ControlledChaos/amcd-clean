@@ -71,9 +71,6 @@ final class Functions {
 		// Controlled Chaos theme setup.
 		add_action( 'after_setup_theme', [ $this, 'setup' ] );
 
-		// Remove unpopular meta tags.
-		add_action( 'init', [ $this, 'head_cleanup' ] );
-
         // Frontend styles.
 		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_styles' ] );
 
@@ -81,7 +78,7 @@ final class Functions {
 		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
 
 		// Admin styles.
-		// add_action( 'admin_enqueue_scripts', [ $this, 'admin_styles' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin_styles' ] );
 
 		// Add conditional body classes.
 		add_filter( 'body_class', [ $this, 'body_classes' ] );
@@ -121,95 +118,7 @@ final class Functions {
 		 *
 		 * @since 1.0.0
 		 */
-		load_theme_textdomain( 'amcd-theme' );
-
-		/**
-		 * Add theme support.
-		 *
-		 * @since 1.0.0
-		 */
-
-		// Browser title tag support.
-		add_theme_support( 'title-tag' );
-
-		// Background color & image support.
-		add_theme_support( 'custom-background' );
-
-		// RSS feed links support.
-		add_theme_support( 'automatic-feed-links' );
-
-		// HTML 5 tags support.
-		add_theme_support( 'html5', [
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gscreenery',
-			'caption'
-		 ] );
-
-		/**
-		 * Add theme support.
-		 *
-		 * @since 1.0.0
-		 */
-
-		// Featured image support.
-		add_theme_support( 'post-thumbnails' );
-
-		/**
-		 * Add image sizes.
-		 *
-		 * Three sizes per aspect ratio so that WordPress
-		 * will use srcset for responsive images.
-		 *
-		 * @since 1.0.0
-		 */
-
-		// Set default sizes in options tabe.
-		update_option( 'thumbnail_size_w', 160 );
-		update_option( 'thumbnail_size_h', 160 );
-		update_option( 'medium_size_w', 320 );
-		update_option( 'medium_size_h', 240 );
-		update_option( 'large_size_w', 1024 );
-		update_option( 'large_size_h', 768 );
-
-		// 1:1 Square.
-		add_image_size( 'thumb-large', 240, 240, true );
-		add_image_size( 'thumb-x-large', 320, 320, true );
-		add_image_size( 'intro-small', 640, 640, true );
-		add_image_size( 'intro-medium', 768, 768, true );
-		add_image_size( 'intro-large', 1080, 1080, true );
-
-		// 16:9 HD Video.
-		add_image_size( 'video-small', 640, 360, true );
-		add_image_size( 'video-medium', 960, 540, true );
-		add_image_size( 'video-large', 1280, 720, true );
-
-		// Add image size for meta tags if companion plugin is not activated.
-		if ( ! is_plugin_active( 'amcd-plugin/amcd-plugin.php' ) ) {
-			add_image_size( __( 'meta-image', 'amcd-theme' ), 1200, 630, true );
-		}
-
-		 /**
-		 * Set content width.
-		 *
-		 * @since 1.0.0
-		 */
-
-		if ( ! isset( $content_width ) ) {
-			$content_width = 1280;
-		}
-
-		/**
-		 * Register theme menus.
-		 *
-		 * @since  1.0.0
-		 */
-		register_nav_menus( [
-			'main'   => __( 'Main Menu', 'amcd-theme' ),
-			'footer' => __( 'Footer Menu', 'amcd-theme' ),
-			'social' => __( 'Social Menu', 'amcd-theme' )
-		] );
+		load_theme_textdomain( 'amcd-clean' );
 
 		/**
 		 * Add stylesheet for the content editor.
@@ -218,30 +127,6 @@ final class Functions {
 		 */
 		add_editor_style( '/assets/css/editor-style.css', [ 'amcd-admin' ], '', 'screen' );
 
-		/**
-		 * Disable Jetpack open graph. We have the open graph tags in the theme.
-		 *
-		 * @since 1.0.0
-		 */
-		if ( class_exists( 'Jetpack' ) ) {
-			add_filter( 'jetpack_enable_opengraph', '__return_false', 99 );
-		}
-
-	}
-
-	/**
-	 * Clean up meta tags from the <head>.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function head_cleanup() {
-
-		remove_action( 'wp_head', 'rsd_link' );
-		remove_action( 'wp_head', 'wlwmanifest_link' );
-		remove_action( 'wp_head', 'wp_generator' );
-		remove_action( 'wp_head', 'wp_site_icon', 99 );
 	}
 
 	/**
@@ -328,6 +213,16 @@ final class Functions {
 	 * @return void
 	 */
 	public function admin_styles() {
+
+		/**
+		 * Check if we and/or Google are online. If so, get Google fonts
+		 * from their servers. Otherwise, get them from the theme directory.
+		 */
+		$google = checkdnsrr( 'google.com' );
+
+		if ( $google ) {
+			wp_enqueue_style( 'amcd-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:200,300,400|Open+Sans:400,400i,600,600i,700,700i', [], '', 'screen' );
+		}
 
 		// Admin styles.
 		wp_enqueue_style( 'amcd-clean-admin',  get_theme_file_uri( '/assets/css/admin-theme.css' ), [], '', 'screen' );

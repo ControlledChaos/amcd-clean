@@ -5,161 +5,381 @@
  */
 body {
   background: #fff;
+  padding-right: 2em;
+}
+
+#wpbody {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.wrap {
+	margin: 2em 0 0;
+}
+
+.wrap > h1,
+.welcome-panel h2 {
+	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-size: 22px;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: #777;
+}
+
+.welcome-panel h2 {
+	font-size: 19px;
+}
+
+#screen-meta {
+	margin: 0 0 -1px 0;
+}
+
+#screen-meta-links .screen-meta-toggle {
+	top: 1px;
+}
+
+#screen-meta-links {
+	margin: 0;
+}
+
+#contextual-help-link-wrap,
+#screen-options-link-wrap {
+	border: none;
+}
+
+a,
+button,
+input {
+	box-shadow: none !important;
+	color: #777;
+}
+
+/**
+ * Admin header
+ */
+.amcd-admin-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2em 0 0;
+	padding-bottom: 1em;
+	border-bottom: solid 1px #ccc;
+}
+
+.admin-site-title {
+	margin: 0;
+	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-size: 28px;
+	font-weight: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.035em;
+    line-height: 1;
+}
+
+.admin-site-title a {
+	text-decoration: none;
+}
+
+.admin-site-description {
+	margin: 0;
+    font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: lighter;
+	font-weight: 300;
+    letter-spacing: 0.025em;
+    color: #777;
+}
+
+.admin-navigation-list li {
+	display: inline;
+	margin: 0 1em;
+    font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.admin-navigation-list li a {
+	display: inline-block;
+    position: relative;
+	color: #777;
+	text-decoration: none;
+    cursor: pointer;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transition: all .15s;
+    transition: all .15s;
+}
+
+.admin-navigation-list li a:before {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -0.5em;
+    left: 0;
+    background: #777;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.admin-navigation-list li:hover a:before,
+.admin-navigation-list li.current-menu-item a:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
 }
 
 /* Links */
 a {
-  color: #555;
+	color: #777;
 }
 
 a:hover, a:active, a:focus {
-  color: #555;
+	color: #777;
 }
 
 #media-upload a.del-link:hover,
 div.dashboard-widget-submit input:hover,
 .subsubsub a:hover,
 .subsubsub a.current:hover {
-  color: #555;
+	color: #777;
 }
 
 /* Forms */
 input[type=checkbox]:checked:before {
-  color: #555;
+	color: #777;
 }
 
 input[type=radio]:checked:before {
-  background: #888;
+	background: #888;
 }
 
 .wp-core-ui input[type="reset"]:hover,
 .wp-core-ui input[type="reset"]:active {
-  color: #888;
+	color: #888;
 }
 
 /* Core UI */
-.wp-core-ui .button-primary {
-  background: #a3b745;
-  border-color: #829237 #727f30 #727f30;
-  color: #fff;
-  box-shadow: 0 1px 0 #727f30;
-  text-shadow: 0 -1px 1px #727f30, 1px 0 1px #727f30, 0 1px 1px #727f30, -1px 0 1px #727f30;
+.wp-core-ui .button-link {
+	color: #444;
 }
 
-.wp-core-ui .button-primary:hover, .wp-core-ui .button-primary:focus {
-  background: #a9bd4f;
-  border-color: #727f30;
-  color: #fff;
-  box-shadow: 0 1px 0 #727f30;
+.wp-core-ui .button-link:hover,
+.wp-core-ui .button-link:focus {
+	color: #777;
+}
+
+.wp-core-ui .button-primary,
+.wp-core-ui .button {
+	height: auto;
+	background: #777;
+	border: none;
+	color: #fff;
+	box-shadow: none;
+	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-size: 0.85em;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	text-shadow: none;
+	border-radius: 0px;
+}
+
+.wp-core-ui .button-primary:hover,
+.wp-core-ui .button-primary:focus {
+	background: #aeaeae;
+	border: none;
+	color: #fff;
+	box-shadow: none;
+}
+
+.wp-core-ui .button-secondary:focus,
+.wp-core-ui .button-secondary:hover,
+.wp-core-ui .button.focus,
+.wp-core-ui .button.hover,
+.wp-core-ui .button:focus,
+.wp-core-ui .button:hover {
+	background: #aeaeae;
+	color: #fff;
 }
 
 .wp-core-ui .button-primary:focus {
-  box-shadow: inset 0 1px 0 #829237, 0 0 2px 1px #33b3db;
+	box-shadow: none;
 }
 
-.wp-core-ui .button-primary:active, .wp-core-ui .button-primary.active, .wp-core-ui .button-primary.active:focus, .wp-core-ui .button-primary.active:hover {
-  background: #829237;
-  border-color: #727f30;
-  box-shadow: inset 0 2px 0 #727f30;
+.wp-core-ui .button-primary:active,
+.wp-core-ui .button-primary.active,
+.wp-core-ui .button-primary.active:focus,
+.wp-core-ui .button-primary.active:hover {
+	background: #ccc;
+	border: none;
+	box-shadow: none;
 }
 
-.wp-core-ui .button-primary[disabled], .wp-core-ui .button-primary:disabled, .wp-core-ui .button-primary.button-primary-disabled, .wp-core-ui .button-primary.disabled {
-  color: #cfd1c7 !important;
-  background: #89993a !important;
-  border-color: #727f30 !important;
-  text-shadow: none !important;
+.wp-core-ui .button-primary[disabled],
+.wp-core-ui .button-primary:disabled,
+.wp-core-ui .button-primary.button-primary-disabled,
+.wp-core-ui .button-primary.disabled {
+	color: #888 !important;
+	background: #ccc !important;
+	border: none;
+	text-shadow: none !important;
 }
 
 .wp-core-ui .button-primary.button-hero {
-  box-shadow: 0 2px 0 #727f30 !important;
+	box-shadow: none;
 }
 
 .wp-core-ui .button-primary.button-hero:active {
-  box-shadow: inset 0 3px 0 #727f30 !important;
+	box-shadow: none;
 }
 
 .wp-core-ui .wp-ui-primary {
-  color: #fff;
-  background-color: #523f6d;
+	color: #fff;
+	background-color: #523f6d;
 }
 
 .wp-core-ui .wp-ui-text-primary {
-  color: #523f6d;
+	color: #523f6d;
 }
 
 .wp-core-ui .wp-ui-highlight {
-  color: #fff;
-  background-color: #a3b745;
+	color: #fff;
+	background-color: #777;
 }
 
 .wp-core-ui .wp-ui-text-highlight {
-  color: #a3b745;
+	color: #777;
 }
 
 .wp-core-ui .wp-ui-notification {
-  color: #fff;
-  background-color: #d46f15;
+	color: #fff;
+	background-color: #d46f15;
 }
 
 .wp-core-ui .wp-ui-text-notification {
-  color: #d46f15;
+	color: #d46f15;
 }
 
 .wp-core-ui .wp-ui-text-icon {
-  color: #ece6f6;
+	color: #fff;
+}
+
+h2.title,
+form h2 {
+	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-size: 1.2em;
+	font-weight: normal;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+	color: #777;
 }
 
 /* List tables */
+.wrap .add-new-h2,
+.wrap .add-new-h2:active,
+.wrap .page-title-action,
+.wrap .page-title-action:active {
+	padding: 1em;
+	background: inherit;
+	border-radius: 0px;
+	border: none !important;
+	box-shadow: none !important;
+	color: #777;
+}
+
 .wrap .add-new-h2:hover,
 .wrap .page-title-action:hover,
 .tablenav .tablenav-pages a:hover,
 .tablenav .tablenav-pages a:focus {
-  color: #fff;
-  background-color: #523f6d;
+	color: #777;
+	background-color: #eee;
 }
 
 .view-switch a.current:before {
-  color: #523f6d;
+	color: #ccc;
 }
 
 .view-switch a:hover:before {
-  color: #d46f15;
+	color: #777;
+}
+
+#titlediv {
+	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+	color: #777;
 }
 
 /* Admin Menu */
 #adminmenuback,
 #adminmenuwrap,
 #adminmenu {
-  background: #fff;
+	background: #eee;
 }
 
 #adminmenu a {
-  color: #444;
+	padding-left: 1em !important;
+	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+	color: #777;
+}
+
+#adminmenu a.menu-top {
+	font-size: 1.075em;
+	text-transform: uppercase;
+}
+
+.wp-menu-image {
+	display: none;
 }
 
 #adminmenu div.wp-menu-image:before {
-  color: #555;
+	color: #777;
 }
 
 #adminmenu a:hover,
 #adminmenu li.menu-top:hover,
 #adminmenu li.opensub > a.menu-top,
 #adminmenu li > a.menu-top:focus {
-  color: #fff;
-  background-color: #3e3e3e;
+	color: #777;
+	background-color: #ccc;
 }
 
 #adminmenu li.menu-top:hover div.wp-menu-image:before,
 #adminmenu li.opensub > a.menu-top div.wp-menu-image:before {
-  color: #fff;
+	color: #fff;
+}
+
+#adminmenu .wp-submenu li.current, #adminmenu .wp-submenu li.current a, #adminmenu .wp-submenu li.current a:hover, #dashboard_right_now .versions .b, #ed_reply_toolbar #ed_reply_strong, #pass-strength-result.short, #pass-strength-result.strong, #post-status-display, #post-visibility-display, .feature-filter .feature-name, .item-controls .item-order a, .media-item .percent, .nav-tab, .plugins .name {
+	font-weight: normal;
+	font-weight: 400;
+}
+
+#adminmenu .wp-submenu li.current a:before {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 -0.15em 0 -0.35em;
+	font-family: 'Dashicons';
+	font-size: 2em;
+	content: '\f139';
 }
 
 /* Active tabs use a bottom border color that matches the page background color. */
 .about-wrap h2 .nav-tab-active,
 .nav-tab-active,
 .nav-tab-active:hover {
-  background-color: #f1f1f1;
-  border-bottom-color: #f1f1f1;
+	background-color: #fff;
+	border-bottom-color: #fff;
 }
 
 /* Admin Menu: submenu */
@@ -168,15 +388,15 @@ input[type=radio]:checked:before {
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu,
 .folded #adminmenu .wp-has-current-submenu .wp-submenu,
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu {
-  background: #666;
+	background: #eee;
 }
 
 #adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
-  border-right-color: #666;
+	border-right-color: #eee;
 }
 
 #adminmenu .wp-submenu .wp-submenu-head {
-  color: #4e4e4e;
+	color: #777;
 }
 
 #adminmenu .wp-submenu a,
@@ -184,7 +404,7 @@ input[type=radio]:checked:before {
 .folded #adminmenu .wp-has-current-submenu .wp-submenu a,
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu a,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu a {
-  color: #fff;
+	color: #777;
 }
 
 #adminmenu .wp-submenu a:focus, #adminmenu .wp-submenu a:hover,
@@ -196,15 +416,15 @@ input[type=radio]:checked:before {
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu a:hover,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu a:focus,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu a:hover {
-  background: #fff;
-  color: #444;
+	background: #ddd;
+	color: #777;
 }
 
 /* Admin Menu: current */
 #adminmenu .wp-submenu li.current a,
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu li.current a,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu li.current a {
-  color: #fff;
+	color: #777;
 }
 
 #adminmenu .wp-submenu li.current a:hover, #adminmenu .wp-submenu li.current a:focus,
@@ -212,20 +432,20 @@ input[type=radio]:checked:before {
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu li.current a:focus,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu li.current a:hover,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu li.current a:focus {
-  color: #a3b745;
+	color: #777;
 }
 
 ul#adminmenu a.wp-has-current-submenu:after,
 ul#adminmenu > li.current > a.current:after {
-  border-right-color: #f1f1f1;
+	border-right-color: #fff;
 }
 
 #adminmenu li.current a.menu-top,
 #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
 #adminmenu li.wp-has-current-submenu .wp-submenu .wp-submenu-head,
 .folded #adminmenu li.current.menu-top {
-  color: #fff;
-  background: #a3b745;
+	color: #fff;
+	background: #777;
 }
 
 #adminmenu li.wp-has-current-submenu div.wp-menu-image:before,
@@ -236,52 +456,42 @@ ul#adminmenu > li.current > a.current:after {
 #adminmenu li a:focus div.wp-menu-image:before,
 #adminmenu li.opensub div.wp-menu-image:before,
 .ie8 #adminmenu li.opensub div.wp-menu-image:before {
-  color: #fff;
+	color: #fff;
 }
 
 /* Admin Menu: bubble */
 #adminmenu .awaiting-mod,
-#adminmenu .update-plugins {
-  color: #fff;
-  background: #d46f15;
-}
-
+#adminmenu .update-plugins,
 #adminmenu li.current a .awaiting-mod,
 #adminmenu li a.wp-has-current-submenu .update-plugins,
 #adminmenu li:hover a .awaiting-mod,
 #adminmenu li.menu-top:hover > a .update-plugins {
   color: #fff;
-  background: #fff;
+  background: #d46f15;
 }
 
 /* Admin Menu: collapse button */
-#collapse-button {
-  color: #ece6f6;
-}
-
+#collapse-button,
 #collapse-button:hover,
 #collapse-button:focus {
-  color: #a3b745;
+	color: #777;
 }
 
 /* Admin Bar */
 #wpadminbar {
-  color: #fff;
-  background: #523f6d;
+	color: #fff;
+	background: #777;
 }
 
 #wpadminbar .ab-item,
 #wpadminbar a.ab-item,
 #wpadminbar > #wp-toolbar span.ab-label,
-#wpadminbar > #wp-toolbar span.noticon {
-  color: #fff;
-}
-
+#wpadminbar > #wp-toolbar span.noticon,
 #wpadminbar .ab-icon,
 #wpadminbar .ab-icon:before,
 #wpadminbar .ab-item:before,
 #wpadminbar .ab-item:after {
-  color: #ece6f6;
+	color: #eee;
 }
 
 #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
@@ -289,14 +499,14 @@ ul#adminmenu > li.current > a.current:after {
 #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
 #wpadminbar.nojs .ab-top-menu > li.menupop:hover > .ab-item,
 #wpadminbar .ab-top-menu > li.menupop.hover > .ab-item {
-  color: #a3b745;
-  background: #fff;
+	color: #fff;
+	background: #888;
 }
 
 #wpadminbar:not(.mobile) > #wp-toolbar li:hover span.ab-label,
 #wpadminbar:not(.mobile) > #wp-toolbar li.hover span.ab-label,
 #wpadminbar:not(.mobile) > #wp-toolbar a:focus span.ab-label {
-  color: #a3b745;
+	color: #fff;
 }
 
 #wpadminbar:not(.mobile) li:hover .ab-icon:before,
@@ -308,24 +518,24 @@ ul#adminmenu > li.current > a.current:after {
 
 /* Admin Bar: submenu */
 #wpadminbar .menupop .ab-sub-wrapper {
-  background: #fff;
+	background: #777;
 }
 
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
-  background: #64537c;
+	background: #888;
 }
 
 #wpadminbar .ab-submenu .ab-item,
 #wpadminbar .quicklinks .menupop ul li a,
 #wpadminbar .quicklinks .menupop.hover ul li a,
 #wpadminbar.nojs .quicklinks .menupop:hover ul li a {
-  color: #cbc5d3;
+	color: #fff;
 }
 
 #wpadminbar .quicklinks li .blavatar,
 #wpadminbar .menupop .menupop > .ab-item:before {
-  color: #ece6f6;
+	color: #fff;
 }
 
 #wpadminbar .quicklinks .menupop ul li a:hover,
@@ -346,7 +556,8 @@ ul#adminmenu > li.current > a.current:after {
 #wpadminbar li.hover .ab-item:before,
 #wpadminbar li:hover #adminbarsearch:before,
 #wpadminbar li #adminbarsearch.adminbar-focused:before {
-  color: #a3b745;
+	background: #888;
+	color: #fff;
 }
 
 #wpadminbar .quicklinks li a:hover .blavatar,
@@ -355,142 +566,248 @@ ul#adminmenu > li.current > a.current:after {
 #wpadminbar .menupop .menupop > .ab-item:hover:before,
 #wpadminbar.mobile .quicklinks .ab-icon:before,
 #wpadminbar.mobile .quicklinks .ab-item:before {
-  color: #a3b745;
+	color: #fff;
 }
 
 #wpadminbar.mobile .quicklinks .hover .ab-icon:before,
 #wpadminbar.mobile .quicklinks .hover .ab-item:before {
-  color: #ece6f6;
+	color: #fff;
 }
 
 /* Admin Bar: search */
 #wpadminbar #adminbarsearch:before {
-  color: #ece6f6;
+	color: #fff;
 }
 
 #wpadminbar > #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
-  color: #fff;
-  background: #634c84;
+	color: #777;
+	background: #eee;
 }
 
 /* Admin Bar: my account */
 #wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
-  border-color: #634c84;
-  background-color: #634c84;
+	border: none;
+	background-color: #777;
 }
 
 #wpadminbar #wp-admin-bar-user-info .display-name {
-  color: #fff;
+	color: #fff;
 }
 
 #wpadminbar #wp-admin-bar-user-info a:hover .display-name {
-  color: #a3b745;
+	color: #fff;
 }
 
 #wpadminbar #wp-admin-bar-user-info .username {
-  color: #cbc5d3;
+	color: #fff;
+}
+
+/**
+ * Welcome panel
+ */
+.welcome-panel {
+	padding: 2em 0 0;
+	border-top: solid 1px #eee !important;
+	border: none;
+	box-shadow: none;
+}
+
+.welcome-panel h3,
+.welcome-panel h4,
+.amcd-dashboard-post-type-actions a {
+	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-weight: 400;
+	color: #777;
+}
+
+.amcd-dashboard-post-type-actions li {
+	border: solid 1px #ccc;
+}
+
+.amcd-dashboard-post-type-actions-icon .dashicons:before,
+.amcd-dashboard-content-actions-icon .dashicons:before {
+	color: #777;
 }
 
 /* Pointers */
 .wp-pointer .wp-pointer-content h3 {
-  background-color: #a3b745;
-  border-color: #93a43e;
+	background-color: #777;
+	border-color: #777;
 }
 
 .wp-pointer .wp-pointer-content h3:before {
-  color: #a3b745;
+	color: #777;
 }
 
 .wp-pointer.wp-pointer-top .wp-pointer-arrow,
 .wp-pointer.wp-pointer-top .wp-pointer-arrow-inner,
 .wp-pointer.wp-pointer-undefined .wp-pointer-arrow,
 .wp-pointer.wp-pointer-undefined .wp-pointer-arrow-inner {
-  border-bottom-color: #a3b745;
+	border-bottom-color: #777;
 }
 
 /* Media */
 .media-item .bar,
-.media-progress-bar div {
-  background-color: #a3b745;
+.media-progress-bar div,
+.wp-core-ui .attachment.details .check, .wp-core-ui .attachment.selected .check:focus, .wp-core-ui .media-frame.mode-grid .attachment.selected .check {
+	background-color: #777;
 }
 
 .details.attachment {
-  box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 7px #a3b745;
+	box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 7px #777;
 }
 
 .attachment.details .check {
-  background-color: #a3b745;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #a3b745;
+	background-color: #777;
+	box-shadow: 0 0 0 1px #fff, 0 0 0 2px #777;
 }
 
-.media-selection .attachment.selection.details .thumbnail {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #a3b745;
+.media-selection .attachment.selection.details .thumbnail,
+.media-frame.mode-grid .attachment.details {
+	box-shadow: 0 0 0 1px #fff, 0 0 0 3px #777;
+}
+
+.media-frame.mode-grid .attachment.details:focus,
+.media-frame.mode-grid .attachment:focus,
+.media-frame.mode-grid .selected.attachment:focus {
+	box-shadow: inset 0 0 2px 3px #fff,inset 0 0 0 7px #777;
+	outline: 0;
 }
 
 /* Themes */
 .theme-browser .theme.active .theme-name,
 .theme-browser .theme.add-new-theme a:hover:after,
 .theme-browser .theme.add-new-theme a:focus:after {
-  background: #a3b745;
+	background: #777;
 }
 
 .theme-browser .theme.add-new-theme a:hover span:after,
 .theme-browser .theme.add-new-theme a:focus span:after {
-  color: #a3b745;
+	color: #777;
+}
+
+.theme-browser .theme.active .theme-actions {
+	background: inherit;
+	box-shadow: none;
+}
+
+.theme-browser .theme .theme-name {
+	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #777;
+}
+
+.theme-overlay .theme-name {
+	color: #777;
+	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-size: 28px;
+	font-weight: lighter;
+	font-weight: 300;
+	letter-spacing: -0.01em;
+}
+
+.theme-browser .theme .more-details {
+	background: #777;
+	text-shadow: none;
+}
+
+.theme-overlay .current-label {
+	box-sizing: border-box;
+	margin: 0;
+	background: #888;
+	color: #fff;
+	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	line-height: 1;
+	padding: 1em;
+	border-radius: 0px;
+}
+
+.theme-overlay .parent-theme {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-left: 4px solid #777;
 }
 
 .theme-section.current,
 .theme-filter.current {
-  border-bottom-color: #523f6d;
+	border-bottom-color: #523f6d;
 }
 
 body.more-filters-opened .more-filters {
-  color: #fff;
-  background-color: #523f6d;
+	color: #fff;
+	background-color: #523f6d;
 }
 
 body.more-filters-opened .more-filters:before {
-  color: #fff;
+	color: #fff;
 }
 
 body.more-filters-opened .more-filters:hover,
 body.more-filters-opened .more-filters:focus {
-  background-color: #a3b745;
-  color: #fff;
+	background-color: #777;
+	color: #fff;
 }
 
 body.more-filters-opened .more-filters:hover:before,
 body.more-filters-opened .more-filters:focus:before {
-  color: #fff;
+	color: #fff;
 }
 
 /* Widgets */
+div#widgets-left .sidebar-name h2,
+div#widgets-left .sidebar-name h3,
+div#widgets-right .sidebar-name h2,
+div#widgets-right .sidebar-name h3 {
+	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-size: 1.2em;
+	font-weight: normal;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+	color: #777;
+}
+
 .widgets-chooser li.widgets-chooser-selected {
-  background-color: #a3b745;
-  color: #fff;
+	background-color: #777;
+	color: #fff;
 }
 
 .widgets-chooser li.widgets-chooser-selected:before,
 .widgets-chooser li.widgets-chooser-selected:focus:before {
-  color: #fff;
+	color: #fff;
+}
+
+/* Plugins */
+.plugins .active td, .plugins .active th {
+	background: #fff;
+}
+
+.plugin-update-tr.active td,
+.plugins .active th.check-column {
+	border-left-color: #777;
 }
 
 /* Responsive Component */
 div#wp-responsive-toggle a:before {
-  color: #ece6f6;
+	color: #eee;
 }
 
 .wp-responsive-open div#wp-responsive-toggle a {
-  border-color: transparent;
-  background: #a3b745;
+	border-color: transparent;
+	background: #777;
 }
 
 .wp-responsive-open #wpadminbar #wp-admin-bar-menu-toggle a {
-  background: #fff;
+	background: #fff;
 }
 
 .wp-responsive-open #wpadminbar #wp-admin-bar-menu-toggle .ab-icon:before {
-  color: #ece6f6;
+	color: #fff;
 }
 
 /* TinyMCE */
@@ -499,5 +816,32 @@ div#wp-responsive-toggle a:before {
 .mce-container.mce-menu .mce-menu-item:focus,
 .mce-container.mce-menu .mce-menu-item-normal.mce-active,
 .mce-container.mce-menu .mce-menu-item-preview.mce-active {
-  background: #a3b745;
+	background: #777;
+}
+
+#post-body #visibility::before, #post-body .misc-pub-post-status::before, #post-body .misc-pub-revisions::before, .curtime #timestamp::before, span.wp-media-buttons-icon::before {
+	color: #fff;
+}
+
+/**
+ * Advanced Custom Fields
+ */
+.acf-postbox.seamless > .acf-fields > .acf-tab-wrap .acf-tab-group li.active a {
+	background: #fff !important;
+}
+
+.acf-switch.-on,
+.acf-button-group label.selected {
+	background: #46b450 !important;
+	border-color: #46b450 !important;
+}
+
+.acf-switch.-on .acf-switch-slider {
+	border-color: #46b450 !important;
+}
+
+.acf-switch .acf-switch-on,
+.acf-button-group label.selected {
+	text-shadow: none !important;
+	font-weight: bold;
 }
