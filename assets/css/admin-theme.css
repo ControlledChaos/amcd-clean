@@ -77,8 +77,8 @@ input {
 	margin: 0;
 	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	font-size: 28px;
-	font-weight: normal;
-    font-weight: 500;
+	font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.035em;
     line-height: 1;

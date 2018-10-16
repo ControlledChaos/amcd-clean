@@ -296,9 +296,9 @@ body:not(.home) .page-top-wrap {
 .menu-open,
 .menu-close {
     font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    font-size: 1.25em;
-    font-weight: normal;
-    font-weight: 400;
+    font-size: 1.15em;
+    font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.0875em;
     color: #777;
