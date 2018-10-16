@@ -21,13 +21,18 @@ body {
 .welcome-panel h2 {
 	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	font-size: 22px;
-	font-weight: 400;
+	font-weight: normal;
+	font-weight: 500;
 	text-transform: uppercase;
+	letter-spacing: 0.0475em;
 	color: #777;
 }
 
 .welcome-panel h2 {
-	font-size: 19px;
+	font-size: 1.275em;
+	font-weight: bold;
+	font-weight: 600;
+	letter-spacing: 0.075em;
 }
 
 #screen-meta {
@@ -73,7 +78,7 @@ input {
 	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	font-size: 28px;
 	font-weight: normal;
-    font-weight: 400;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.035em;
     line-height: 1;
@@ -88,8 +93,8 @@ input {
     font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     font-size: 1.6em;
     font-style: normal;
-    font-weight: lighter;
-	font-weight: 300;
+    font-weight: normal;
+	font-weight: 400;
     letter-spacing: 0.025em;
     color: #777;
 }
@@ -98,8 +103,9 @@ input {
 	display: inline;
 	margin: 0 1em;
     font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
+	font-size: 14px;
+	font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
@@ -188,7 +194,8 @@ input[type=radio]:checked:before {
 	box-shadow: none;
 	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	font-size: 0.85em;
-	font-weight: 400;
+	font-weight: normal;
+	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	text-shadow: none;
@@ -280,7 +287,7 @@ form h2 {
 	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	font-size: 1.2em;
 	font-weight: normal;
-	font-weight: 400;
+	font-weight: 500;
 	letter-spacing: 0.05em;
 	color: #777;
 }
@@ -327,11 +334,25 @@ form h2 {
 	background: #eee;
 }
 
+#adminmenu {
+	margin: 0;
+}
+
 #adminmenu a {
-	padding-left: 1em !important;
 	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    font-weight: 400;
+	font-weight: normal;
+    font-weight: 500;
 	color: #777;
+}
+
+#adminmenu .wp-submenu-head,
+#adminmenu a.menu-top {
+	font-weight: bold;
+	font-weight: 600;
+}
+
+body:not(.folded) #adminmenu a {
+	padding-left: 1em !important;
 }
 
 #adminmenu a.menu-top {
@@ -339,7 +360,7 @@ form h2 {
 	text-transform: uppercase;
 }
 
-.wp-menu-image {
+body:not(.folded) .wp-menu-image {
 	display: none;
 }
 
@@ -368,7 +389,7 @@ form h2 {
 #adminmenu .wp-submenu li.current a:before {
 	display: inline-block;
 	vertical-align: middle;
-	margin: 0 -0.15em 0 -0.35em;
+	margin: 0 0 0 -0.35em;
 	font-family: 'Dashicons';
 	font-size: 2em;
 	content: '\f139';
@@ -388,11 +409,11 @@ form h2 {
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu,
 .folded #adminmenu .wp-has-current-submenu .wp-submenu,
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu {
-	background: #eee;
+	background: #ddd;
 }
 
 #adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
-	border-right-color: #eee;
+	border-right-color: #ddd;
 }
 
 #adminmenu .wp-submenu .wp-submenu-head {
@@ -437,6 +458,7 @@ form h2 {
 
 ul#adminmenu a.wp-has-current-submenu:after,
 ul#adminmenu > li.current > a.current:after {
+	display: none;
 	border-right-color: #fff;
 }
 
@@ -444,8 +466,8 @@ ul#adminmenu > li.current > a.current:after {
 #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
 #adminmenu li.wp-has-current-submenu .wp-submenu .wp-submenu-head,
 .folded #adminmenu li.current.menu-top {
-	color: #fff;
-	background: #777;
+	color: #777;
+	background: #ccc;
 }
 
 #adminmenu li.wp-has-current-submenu div.wp-menu-image:before,
@@ -606,8 +628,8 @@ ul#adminmenu > li.current > a.current:after {
  * Welcome panel
  */
 .welcome-panel {
-	padding: 2em 0 0;
-	border-top: solid 1px #eee !important;
+	padding: 1em 0 0;
+	border-top: solid 0px #eee !important;
 	border: none;
 	box-shadow: none;
 }
@@ -616,7 +638,8 @@ ul#adminmenu > li.current > a.current:after {
 .welcome-panel h4,
 .amcd-dashboard-post-type-actions a {
 	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-	font-weight: 400;
+	font-weight: normal;
+	font-weight: 500;
 	color: #777;
 }
 
@@ -693,8 +716,9 @@ ul#adminmenu > li.current > a.current:after {
 
 .theme-browser .theme .theme-name {
 	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
+	font-size: 13px;
+	font-weight: normal;
+    font-weight: 500;
     text-transform: uppercase;
 	letter-spacing: 0.05em;
 	color: #777;
@@ -704,8 +728,8 @@ ul#adminmenu > li.current > a.current:after {
 	color: #777;
 	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	font-size: 28px;
-	font-weight: lighter;
-	font-weight: 300;
+	font-weight: normal;
+	font-weight: 400;
 	letter-spacing: -0.01em;
 }
 
@@ -767,7 +791,7 @@ div#widgets-right .sidebar-name h3 {
 	font-family: 'Montserrat', 'Libre Franklin', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	font-size: 1.2em;
 	font-weight: normal;
-	font-weight: 400;
+	font-weight: 500;
 	letter-spacing: 0.05em;
 	color: #777;
 }

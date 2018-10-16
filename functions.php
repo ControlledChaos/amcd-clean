@@ -198,7 +198,7 @@ final class Functions {
 		$google = checkdnsrr( 'google.com' );
 
 		if ( $google ) {
-			wp_enqueue_style( 'amcd-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:200,300,400|Open+Sans:400,400i,600,600i,700,700i', [], '', 'screen' );
+			wp_enqueue_style( 'amcd-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Open+Sans:400,400i,600,600i,700,700i', [], '', 'screen' );
 		}
 
 		wp_enqueue_style( 'amcd-icons',  get_theme_file_uri( '/assets/icon-font/amcd-icons.min.css' ), [], '', 'screen' );
@@ -221,7 +221,7 @@ final class Functions {
 		$google = checkdnsrr( 'google.com' );
 
 		if ( $google ) {
-			wp_enqueue_style( 'amcd-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:200,300,400|Open+Sans:400,400i,600,600i,700,700i', [], '', 'screen' );
+			wp_enqueue_style( 'amcd-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Open+Sans:400,400i,600,600i,700,700i', [], '', 'screen' );
 		}
 
 		// Admin styles.
