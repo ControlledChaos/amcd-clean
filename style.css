@@ -379,6 +379,10 @@ body:not(.home) article {
     );
 }
 
+.video-grid.commercials figcaption {
+    padding-bottom: 2.5em;
+}
+
 .video-grid a {
 	text-decoration: none;
 	color: #fff;
