@@ -601,6 +601,11 @@ body:not(.home) article {
 	margin: 0;
 }
 
+.agents-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .agents-list li {
 	margin-top: 1em;
 }
@@ -798,7 +803,12 @@ body:not(.home) article {
 @media screen and (max-width: 834px) {
 
     .page-top-wrap {
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+           -moz-box-orient: vertical;
+           -moz-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     .site-header,
@@ -819,6 +829,10 @@ body:not(.home) article {
         margin: 1em 0;
         margin: 4vh 0;
 		font-size: 1.5em;
+    }
+    
+    .agents-list {
+		grid-template-columns: repeat(2, 1fr);
 	}
 
 }
@@ -833,5 +847,9 @@ body:not(.home) article {
     .disabled.video-grid figcaption li a:after {
         display: none;
     }
+
+    .agents-list {
+		grid-template-columns: repeat(1, 1fr);
+	}
 
 }
