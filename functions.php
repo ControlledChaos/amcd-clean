@@ -332,8 +332,9 @@ final class Functions {
 				dots: false,
 				infinite: true,
 				speed: 800,
-				adaptiveHeight: false,
+				adaptiveHeight: true,
 				variableWidth: false,
+				mobileFirst: true,
 				draggable: false,
 				fade: true
 			});
