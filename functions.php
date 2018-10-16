@@ -86,6 +86,9 @@ final class Functions {
 		// Front page scripts.
 		add_action( 'wp_footer', [ $this, 'front_page_scripts' ], 20 );
 
+		// Login styles.
+		add_action( 'login_enqueue_scripts', [ $this, 'login_styles' ] );
+
 		// Remove the user admin color scheme picker.
 		remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
@@ -336,6 +339,29 @@ final class Functions {
 			});
 			</script>';
 		}
+
+	}
+
+	/**
+	 * Login styles.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function login_styles() {
+
+		/**
+		 * Check if we and/or Google are online. If so, get Google fonts
+		 * from their servers. Otherwise, get them from the theme directory.
+		 */
+		$google = checkdnsrr( 'google.com' );
+
+		if ( $google ) {
+			wp_enqueue_style( 'amcd-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Open+Sans:400,400i,600,600i,700,700i', [], '', 'screen' );
+		}
+
+		wp_enqueue_style( 'amcd-theme-login', get_theme_file_uri( '/assets/css/login.css' ), [], '', 'screen' );
 
 	}
 
