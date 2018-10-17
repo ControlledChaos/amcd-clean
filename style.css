@@ -24,7 +24,8 @@ body:not(.home) {
 
 .home.page {
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
+    padding: 2em;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -111,7 +112,8 @@ body:not(.home) .page-top-wrap {
 }
 
 .intro-image {
-    max-width: 50%;
+    max-width: 90vh;
+    padding: 2em;
 }
 
 .intro-image ul {
