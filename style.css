@@ -403,7 +403,7 @@ body:not(.home) article {
     );
 }
 
-.video-grid.commercials figcaption {
+.video-grid.commercials li:not(.commercial-has-director) figcaption {
     padding-bottom: 2.5em;
 }
 
