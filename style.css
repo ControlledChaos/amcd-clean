@@ -877,7 +877,11 @@ body:not(.home) article {
         margin: 4vh 0;
 		font-size: 1.5em;
     }
-    
+
+    .has-bg-slider .main-navigation li a {
+	    color: #777;
+	}
+
     .agents-list {
 		grid-template-columns: repeat(2, 1fr);
 	}
