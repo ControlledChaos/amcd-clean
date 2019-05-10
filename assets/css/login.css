@@ -89,7 +89,6 @@ strong {
     text-transform: uppercase;
 	text-decoration: none;
 	text-shadow: none;
-    letter-spacing: 0.1em;
     -webkit-transition: all .15s;
     transition: all .15s;
 }
