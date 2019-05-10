@@ -362,6 +362,7 @@ body:not(.home) article {
 }
 
 .video-grid img {
+	width: 100%;
     opacity: 0.925;
     -webkit-filter: grayscale(10%);
             filter: grayscale(10%);
